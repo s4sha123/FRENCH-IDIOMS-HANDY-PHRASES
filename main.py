@@ -7,7 +7,7 @@ current_card = {}
 to_learn = {}
 
 try:
-    data = pandas.read_csv("data/french_handyStuff.csv")
+    data = pandas.read_csv("data/words_to_learn.csv")
 except FileNotFoundError:
     original_data = pandas.read_csv("data/french_handyStuff.csv")
     to_learn = original_data.to_dict(orient = "records")
@@ -35,7 +35,7 @@ def is_known():
     to_learn.remove(current_card)
     # print(len(to_learn))
     data = pandas.DataFrame(to_learn)
-    data.to_csv("data/french_handyStuff.csv", index=False)
+    data.to_csv("data/words_to_learn.csv", index=False)
     next_card()
 
 window = Tk()
